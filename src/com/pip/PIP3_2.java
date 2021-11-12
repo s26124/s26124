@@ -1,7 +1,7 @@
 package com.pip;
 import java.util.Scanner;
 
-public class Main {
+public class PIP3_2 {
 
     public static void main(String[] args) {
         System.out.print("Podaj numer miesiąca: ");
@@ -18,7 +18,7 @@ public class Main {
 
         String tekst = miesiac + "." + rok + " to ";
         int mies = miesiac;
-        mies /= 4;
+        mies /= 3;
         if (mies == 0) {tekst += "I";} else {
             if (mies == 1) {tekst += "II";}
                 else if (mies==2) {tekst+="III";}
