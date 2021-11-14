@@ -5,36 +5,22 @@ import java.util.*;
 public class PIP3_5 {
 
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Podaj tytuł pierwszego utworu: ");
-        String tytul1 = scan.next();
-        System.out.print("Podaj czas trwania pierwszego utworu (minuty): ");
-        String mm1 = scan.next();
-        System.out.print("Podaj czas trwania pierwszego utworu (sekundy): ");
-        String ss1 = scan.next();
-        long d1 = Integer.parseInt(ss1)+(Integer.parseInt(mm1)*60);
 
-        System.out.print("Podaj tytuł drugiego utworu: ");
-        String tytul2 = scan.next();
-        System.out.print("Podaj czas trwania drugiego utworu (minuty): ");
-        String mm2 = scan.next();
-        System.out.print("Podaj czas trwania drugiego utworu (sekundy): ");
-        String ss2 = scan.next();
-        long d2 = Integer.parseInt(ss2)+(Integer.parseInt(mm2)*60);
+        int l=2;
+        int duration = 0;
+        ArrayList<Utwor> u = new ArrayList<>();
+        for (int a=1;a<l;a+=1){
+                Song();
+                //u.add(new Song());
+                //duration+=Song().d;
+            }
 
-        ArrayList<Utwor> u = new ArrayList<Utwor>();
-        u.add(new Utwor(tytul1,mm1,ss1,d1));
-        u.add(new Utwor(tytul2,mm2,ss2,d2));
-
-        long d=d1+d2;
-        long mm = d / 60;
-        d %= 60;
-        long ss = d;
-
+        long mm = duration / 60;
+        duration %= 60;
+        long ss = duration;
 
         System.out.println("UTWORY:");
 
-        // call the sort function
         Collections.sort(u, new DurationComparator());
         int i=1;
         for (Utwor utwor : u) {
@@ -54,13 +40,23 @@ public class PIP3_5 {
         if (s < 10) return "0" + s;
         else return "" + s;
     }
-
+/*
     public static long Duration(String mm, String ss) {
         long duration = 60*Long.parseLong(mm)+Long.parseLong(ss);
         return duration;
     }
-
- //   public static void
+*/
+    public static Utwor Song() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Podaj tytuł utworu: ");
+        String tytul = scan.next();
+        System.out.print("Podaj czas trwania utworu (minuty): ");
+        String mm = scan.next();
+        System.out.print("Podaj czas trwania utworu (sekundy): ");
+        String ss = scan.next();
+        long d = Long.parseLong(ss)+(Long.parseLong(mm)*60);
+        return new Utwor(tytul,mm,ss,d);
+    }
 
 }
 
@@ -81,15 +77,7 @@ class Utwor {
 class DurationComparator implements Comparator<Utwor> {
     public int compare(Utwor u1, Utwor u2)
     {
-        if (u1.d == u2.d) {
-            return 0;
-        }
-        else if (u1.d > u2.d) {
-            return 1;
-        }
-        else {
-            return -1;
-        }
+        return Long.compare(u1.d, u2.d);
     }
 }
 
