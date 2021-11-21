@@ -1,4 +1,4 @@
-package com.pip;
+package com.pip.PIP3;
 import java.util.Scanner;
 
 public class PIP3_2 {
@@ -26,5 +26,5 @@ public class PIP3_2 {
             }
         System.out.print(tekst +" kwartał "+rok+" roku");
         }
-
+//
 }
