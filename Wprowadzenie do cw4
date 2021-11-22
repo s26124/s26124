@@ -1,0 +1,171 @@
+// Repozytorium lokalne
+
+-- ZAD 1
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+       // P prostokat = a * b
+       // P kwadrat = a*a
+       // P rownoleglobok = a * h
+       // P trapez = ((a+b)/2)*h
+       // P trojkat = 1/2 * a*b
+
+    double a;
+    double b;
+    //Scanner
+    double h;
+
+
+    }
+
+    public static double poletrapez(double a, double b , double h){
+        return 0.5*(a+b)*h;
+
+    }
+
+    public static double poleprostokat(double a, double b ) {
+        return poletrapez(a, a, b);
+    }
+
+    public static double poletrojkat(double a, double b ) {
+        return poletrapez(a, 0, b);
+    }
+}
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------
+
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+        String opcja;
+        double a;
+        double b;
+        double pole;
+    switch (opcja){
+        case 1: 
+            System.out.print();
+                    a = nextDouble();
+                    b = nextDouble();
+                    pole = poleprostokat(a,b);
+                    break;
+        case 2:
+    }
+    System.out.print("Pole jest rowne: "+pole)
+
+
+    }
+
+    public static double poletrapez(double a, double b , double h){
+        return 0.5*(a+b)*h;
+
+    }
+
+    public static double poleprostokat(double a, double b ) {
+        return poletrapez(a, a, b);
+    }
+
+    public static double poletrojkat(double a, double b ) {
+        return poletrapez(a, 0, b);
+    }
+}
+
+
+// Switch, nie każdy typ może zostać użyty do sterowania całym switchem. Opcja może być int, double, char. Boleean nie może być obsłużony switchem
+// Switch jest szybszy, narzuca programiście wszystko co jest w poszczególnym  casie jest bardzo podobna.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+ZAD 2
+// 3 odrębne instacje if
+
+        boolean flag = false;
+        double liczba;
+    if (liczba%2==0){flag=true; System.out.print("");}
+    if (liczba%3==0){flag=true; System.out.print("");};
+    if (liczba%5==0){flag=true; System.out.print("");};
+
+        // Podejscie 1:
+        if (liczba%2 !=0 && liczba%3!=0 && liczba%5!=0){}
+
+        // Podejscie 2:
+        if (!flag){System.out.print();}
+        
+        
+ ------------------------------------------------------------------------------------------------------------------------------------------------
+ ZAD 3
+ 
+         double liczba;
+        
+        if (liczba<0){liczba*=-1} // w przypadku liczb ujemnych
+        if (liczba/10==0){System.out.print("Liczba jednocyfrowa")}
+            else if(liczba/100==0){System.out.print("Liczba dwucyfrowa")}
+                else if(liczba/100 0==0){System.out.print("Liczba dwucyfrowa")}
+                
+ ------------------------------------------------------------------------------------------------------------------------------------------------
+ ZAD 4
+ 
+     switch(opcja){
+        case 1: System.out.print("Wspomniales styczen");
+        break;
+        case 2: ...
+
+    }
+    
+ ------------------------------------------------------------------------------------------------------------------------------------------------
+ ZAD 5
+ 
+     String napis="Do końca roku czekają Cię jeszcze miesiące: "
+    switch(opcja){
+        case 1: napis+="styczeń, ";
+        case 2: napis+="luty, ";
+        ...
+        case 11: napis+="listopad, grudzien";
+        break;
+        case 12: napis="Hura, to już koniec roku";
+    System.out.print(napis);
+    
+    
+ ------------------------------------------------------------------------------------------------------------------------------------------------
+ ZAD 6
+ 
+ // Opcja 1:
+     public static int znakLiczby(double liczba){
+        if (liczba>0) 
+            return 1;
+        else if (liczba==0) 
+            return 0;
+        else if (liczba<0)
+            return -1;
+            
+ ------------------------------
+ Można się pozbyć i napisać krócej:
+         if (liczba>0)
+            return 1;
+        if (liczba==0)
+            return 0;
+            return -1;
+            
+ ------------------------------------------------------------------------------------------------------------------------------------------------
+ ZAD 7
+ 
+  //   10!=12 (mod3)
+ //   1    0
+                
+ //   10=12 (mod2)
+
+    if (a%n == b%n)
+    
