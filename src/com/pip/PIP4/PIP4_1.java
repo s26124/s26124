@@ -4,53 +4,98 @@ import java.util.Scanner;
 public class PIP4_1 {
     public static void main(String[] args) {
 
-    double a,b,h,pole;
-        System.out.println("Program służy do obliczenia pola figur: ");
-        System.out.println("    1 – prostokąta");
-        System.out.println("    2 – kwadratu");
-        System.out.println("    3 – trójkąta");
-        System.out.println("    4 – rombu");
-        System.out.println("    5 – równoległoboku");
-        System.out.println("    6 – trapezu");
-        System.out.println("Powiedz proszę, jaka figura Cię interesuje (1-6): ");
+    System.out.println("Program służy do obliczenia pola figur: ");
+
+        String[] Figura = new String[7];
+            Figura[0] = "prostokąta";
+            Figura[1] = "kwadratu";
+            Figura[2] = "trójkąta";
+            Figura[3] = "rombu";
+            Figura[4] = "równoległoboku";
+            Figura[5] = "trapezu";
+            Figura[6] = "nieokreślone";
+
+        double a,b,h,pole;
+
+        int i=1;
+
+        while (i<7) {
+            System.out.println("    "+i+" - "+Figura[i-1]);
+            i+=1;
+        }
+
+        System.out.print("Wpisz numer figury, która Cię interesuje (1-6): ");
         Scanner scan = new Scanner(System.in);
         int NrFigury = scan.nextInt();
+
+
+
         String napis = "Wybrałeś ";
 
-        a=1;
-        b=2;
-        h=3;
-
         switch (NrFigury) {
-            case 1:     napis+="prostokąt"; System.out.println(napis);
-                        System.out.print("Podaj dł.boku a: ");
-                        a = scan.nextDouble();
-                        System.out.print("Podaj dł.boku b: ");
-                        b = scan.nextDouble();
-                        pole=poleprostokat(a,b);
-                        break;
-
-            case 2:     napis+="kwadrat"; System.out.println(napis);
-                        System.out.print("Podaj dł.boku a: ");
-                        a = scan.nextDouble();
-                        pole=poleprostokat(a,a);
-                        break;
-                case 3: napis+="trójkąt"; System.out.println(napis);
-                        System.out.print("Podaj dł.boku a: ");
-                        a = scan.nextDouble();
-                        System.out.print("Podaj wys. h: ");
-                        b = scan.nextDouble();
-                        pole=poletrojkat(a,b);
-                        break;
-            case 4: pole=poleprostokat(a,h);
-            case 5: pole=poleprostokat(a,h);
-
-                        break;
-            case 6: pole=poletrapez(a,b,h);
-                        break;
-            default: pole=0; napis="Nie wybrałeś figury";
+            case 1 -> {
+                napis += "prostokąt";
+                System.out.println(napis);
+                System.out.print("Podaj dł.boku a: ");
+                a = scan.nextDouble();
+                System.out.print("Podaj dł.boku b: ");
+                b = scan.nextDouble();
+                pole = poleprostokat(a, b);
+            }
+            case 2 -> {
+                napis += "kwadrat";
+                System.out.println(napis);
+                System.out.print("Podaj dł.boku a: ");
+                a = scan.nextDouble();
+                pole = poleprostokat(a, a);
+            }
+            case 3 -> {
+                napis += "trójkąt";
+                System.out.println(napis);
+                System.out.print("Podaj dł.boku a: ");
+                a = scan.nextDouble();
+                System.out.print("Podaj wys. h: ");
+                h = scan.nextDouble();
+                pole = poletrojkat(a, h);
+            }
+            case 4 -> {
+                napis += "romb";
+                System.out.println(napis);
+                System.out.print("Podaj dł.boku a: ");
+                a = scan.nextDouble();
+                System.out.print("Podaj wys. h: ");
+                h = scan.nextDouble();
+                pole = poleprostokat(a, h);
+            }
+            case 5 -> {
+                napis += "równoległobok";
+                System.out.println(napis);
+                System.out.print("Podaj dł.boku a: ");
+                a = scan.nextDouble();
+                System.out.print("Podaj wys. h: ");
+                h = scan.nextDouble();
+                pole = poleprostokat(a, h);
+            }
+            case 6 -> {
+                napis += "równoległobok";
+                System.out.println(napis);
+                System.out.print("Podaj dł.podstawy dolnej: ");
+                a = scan.nextDouble();
+                System.out.print("Podaj dł. podstawy górnej: ");
+                b = scan.nextDouble();
+                System.out.print("Podaj wys. h: ");
+                h = scan.nextDouble();
+                pole = poletrapez(a, b, h);
+            }
+            default -> {
+                pole = 0;
+                napis = "Nie wybrałeś figury";
+                System.out.print(napis);
+            }
         }
-        System.out.print("Pole prostokąta wynosi: "+pole);
+
+        if (NrFigury<7)
+        {System.out.print("Pole "+Figura[NrFigury-1]+ " wynosi: "+pole);}
 
                 /*
         Powiedz proszę, jaka figura Ciebie interesuje: 6
